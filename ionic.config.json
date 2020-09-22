@@ -1,0 +1,7 @@
+{
+  "name": "risecodeMobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
