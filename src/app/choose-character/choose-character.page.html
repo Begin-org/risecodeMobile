@@ -1,0 +1,22 @@
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <p class="title">ESCOLHA UM <br> AVATAR</p>
+  </div>
+  <div class="contentSlide">
+    <img src="./assets/arrowSlide.png" class="arrowSlide rotate" (click)="changeSlide()">
+    <ion-slides pager="true" [options]="slideOptions" #slides>
+      <ion-slide>
+        <img src="./assets/slideBoy.png" class="imgSlide">
+      </ion-slide>
+      <ion-slide>
+        <img src="./assets/slideGirl.png" class="imgSlide">
+      </ion-slide>
+    </ion-slides>
+    <img src="./assets/arrowSlide.png" class="arrowSlide" (click)="changeSlide()">
+  </div>
+  <div class="container">
+    <div class="confirmButton" (click)="openNextPage()"></div>
+  </div>
+</ion-content>
+<ion-footer class="ion-no-border">
+</ion-footer>

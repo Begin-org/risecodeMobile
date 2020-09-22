@@ -1,0 +1,26 @@
+<ion-header class="header ion-no-border">
+  {{chosenCharacter}}
+  <img src="./assets/configIcon.png" class="configIcon">
+</ion-header>
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <p class="title" id="titleGame">1. PEGA HDs</p>
+  </div>
+  <div class="contentSlide">
+    <img src="./assets/arrowSlide.png" class="arrowSlides rotate" (click)="changeSlide()">
+    <ion-slides pager="true" [options]="slideOptions" #slides>
+      <ion-slide>
+        <img src="./assets/iconGameOne.png" class="imgSlide">
+      </ion-slide>
+      <ion-slide>
+        <img src="./assets/iconGameTwo.png" class="imgSlide">
+      </ion-slide>
+    </ion-slides>
+    <img src="./assets/arrowSlide.png" class="arrowSlides" (click)="changeSlide()">
+  </div>
+  <div class="container">
+    <div class="playButton"></div>
+  </div>
+</ion-content>
+<ion-footer class="ion-no-border">
+</ion-footer>
