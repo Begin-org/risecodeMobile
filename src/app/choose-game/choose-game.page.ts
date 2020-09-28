@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSlides } from '@ionic/angular';
+import { IonSlides, NavController } from '@ionic/angular';
 import { Plugins, StatusBarStyle } from '@capacitor/core';
 const { StatusBar } = Plugins;
 const { Storage } = Plugins;
@@ -29,7 +29,7 @@ export class ChooseGamePage implements OnInit {
       }
    });
   }
-  constructor() { }
+  constructor(private navigation: NavController) { }
   chosenCharacter = "";
 
   ngOnInit() {
@@ -41,6 +41,14 @@ export class ChooseGamePage implements OnInit {
     const { value } = await Storage.get({ key: 'character' });
     console.log('Chosen character: ', value);
     this.chosenCharacter = value;
+  }
+
+  openGame(){
+    this.slides.getActiveIndex().then(index => {
+      if(index==1){
+        this.navigation.navigateForward('sets-game');
+      }
+    });
   }
 
 }

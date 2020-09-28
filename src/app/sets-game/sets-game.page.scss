@@ -1,0 +1,103 @@
+ion-content{
+    --ion-background-color:#5fc8d5;
+  }
+  
+ion-header{
+    --ion-background-color:#5fc8d5;
+}
+
+.header{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 3vw;
+    padding-right: 3vw;
+    background-color: #5fc8d5;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 8vw;
+}
+
+.game{
+    position: relative;
+}
+
+.game-content{
+    position: relative;
+    width: 100vw;
+    height: 120vw;
+    margin-top: 5vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: 5px solid #243b81;
+    border-radius: 10px;
+}
+
+.lists{
+    font-size: 4vw;
+    color: #243b81;
+}
+
+.circle {
+    width: 60vw;
+    height: 65vw;
+    filter: invert(30%) sepia(70%) saturate(2600%) hue-rotate(346deg) brightness(130%) contrast(78%);
+    opacity: .7;
+    position: absolute;
+    z-index: 10;
+    top: 2vw;
+    left: 3vw;
+}
+
+#circle2 {
+    filter: invert(30%) sepia(70%) saturate(2600%) hue-rotate(200deg) brightness(130%) contrast(78%);
+    left: 35vw;
+}
+
+.items {
+    width: 12vw;
+    height: 12vw;
+    position: absolute;
+    z-index: 11;
+    top: 70vw;
+}
+
+
+#item{
+    left: 6vw;
+}
+
+#item2{
+    left: 24vw;
+}
+
+#item3{
+    left: 42vw;
+}
+
+#item4{
+    left: 60vw;
+}
+
+#finish{
+    top: 90vw;
+    position: absolute;
+    width: 40vw;
+}
+
+.warnings{
+    margin-top: 40vw;
+}
+
+ion-footer{
+    background-image: url('../../assets/footerClouds.png');
+    background-size: 100% 100%;
+    height: 20vw;
+}
