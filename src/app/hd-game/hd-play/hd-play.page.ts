@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {NavController } from '@ionic/angular'
+import {NavController, ModalController } from '@ionic/angular'
+import {ModalPage} from '../../modal/modal.page'
+import { Plugins } from '@capacitor/core';
+const { Storage } = Plugins;
+
 @Component({
   selector: 'app-hd-play',
   templateUrl: './hd-play.page.html',
@@ -7,7 +11,7 @@ import {NavController } from '@ionic/angular'
 })
 export class HdPlayPage implements OnInit {
 
-  constructor(private navigation: NavController) { }
+  constructor(private navigation: NavController, public modalController : ModalController) { }
 
   ngOnInit() {
   }
@@ -15,4 +19,15 @@ export class HdPlayPage implements OnInit {
   nextPage(){
     this.navigation.navigateForward('hd-game');
   }
+
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: ModalPage,
+      componentProps: {
+        "jogo": 1,
+      }
+    });
+    return await modal.present();
+  }
+  
 }

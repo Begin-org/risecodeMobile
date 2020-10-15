@@ -26,7 +26,7 @@ export class ChooseCharacterPage implements OnInit {
   constructor(private navigation: NavController) { }
 
   ngOnInit() {
-    StatusBar.hide();   
+    StatusBar.hide();  
   }
 
   changeSlide() {

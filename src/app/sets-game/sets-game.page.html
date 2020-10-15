@@ -5,12 +5,19 @@
     <div class="lists" *ngIf="isListsVisible">
       <p>Salmão: Mouse, Placa Mãe, Disco Rígido</p>
       <p>Azul: Teclado, Mouse</p>
-  </div>
+    </div>
   <div class="game">
       <div class="warnings" *ngIf="isWarningsVisible">
-          <img src="./assets/play.png" id="play" (click)="play()" *ngIf="isPlayVisible"/>
-          <img src="./assets/lost.png" id="lost" (click)="play()" *ngIf="isLostVisible"/>
-          <img src="./assets/won.png" id="won" (click)="won()" *ngIf="isWonVisible"/>
+        <div *ngIf="isPlayVisible" class="initial">
+          <img src="../../../assets/nameSetGame.png" class="nameGame">
+          <img src="../../../assets/iconGameTwo.png" class="iconGame">
+          <img src="../../../assets/playButtonTwo.png" class="buttonPlay" id="play" (click)="play()">
+          <img src="../../../assets/instructionsButton.png" class="buttonInstructions" (click)="presentModal()">
+ 
+          <!--<img src="./assets/playButtonTwo.png" id="play" (click)="play()"/>-->
+        </div>
+           <img src="{{srcLost}}" id="lost" class="lost" (click)="play()" *ngIf="isLostVisible"/>
+          <img src="{{srcWin}}" id="won" class="won" (click)="won()" *ngIf="isWonVisible"/>
       </div>
       <div class="game-content" *ngIf="isGameVisible">
           <img src="./assets/circle.svg" id="circle" class="circle"/>

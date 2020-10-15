@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, ModalController } from '@ionic/angular';
+import {ModalPage} from '../modal/modal.page'
+import {
+  Plugins
+} from '@capacitor/core';
+const { Storage } = Plugins;
+
+var choosenCharacter;
 
 @Component({
   selector: 'app-sets-game',
@@ -13,12 +20,36 @@ export class SetsGamePage implements OnInit {
   isLostVisible = false;
   isListsVisible = false;
   isPlayVisible = true;
+  srcLost = "./assets/lostBoy.png";
+  srcWin = "./assets/wonBoy.png"
 
-  constructor(private navigation: NavController) { }
+  constructor(private navigation: NavController, public modalController : ModalController) { }
 
   ngOnInit() {
+    this.getItem();
   }
 
+  async getItem() {
+    const { value } = await Storage.get({ key: 'character' });
+    choosenCharacter = value;
+
+    if(choosenCharacter==1){
+      this.srcLost = "./assets/lostBoy.png";
+      this.srcWin = "./assets/wonBoy.png"
+    } else {
+      this.srcLost = "./assets/lostGirl.png";
+      this.srcWin = "./assets/wonGirl.png"
+    }
+  }
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: ModalPage,
+      componentProps: {
+        "jogo": 2,
+      }
+    });
+    return await modal.present();
+  }
   reset(){
     this.isGameVisible = false;
     this.isLostVisible = false;
@@ -43,6 +74,7 @@ export class SetsGamePage implements OnInit {
 
     this.reset();
     this.isWarningsVisible = true;
+    
 
     let circle = document.getElementById("circle");
     let circle2 = document.getElementById("circle2");
@@ -73,6 +105,8 @@ export class SetsGamePage implements OnInit {
       this.isLostVisible = true;
   
     }
+
+    
 
   }
 

@@ -1,0 +1,36 @@
+<ion-content [fullscreen]="true">
+
+  <div id="container" class="container">
+    
+    <div class="modal" id="modalGame1" *ngIf="isModalGame1Visible">
+      <p class="title">Instruçoes</p>
+      <!--<button (click)="dismiss()">a</button>-->
+      <p class="text">Neste jogo voce <span class="green">deve</span> coletar HDs</p>
+      <img src="../../assets/hardDrive.png" class="icons">
+      <p class="text"> Mas cuidado, voce <span class="red">nao deve</span> coletar outras coisas</p>
+      <div class="icons-not">
+        <img src="../../assets/chip.png" class="icons2">
+        <img src="../../assets/usb.png" class="icons2">
+        <img src="../../assets/wirelessRouter.png" class="icons2">
+      </div>
+      <p class="text">Se você pegar <span class="green">10 HDs</span> você <span class="green">ganha</span>!</p>
+      <br>
+      <p class="text">Mas cuidado, você pode errar <span class="red">3 vezes</span>.</p>
+      <img src="../../assets/okButton.png" class="okButton" (click)="dismiss()">
+    </div>
+
+    <div class="modal" id="modalGame2" *ngIf="isModalGame2Visible">
+      <p class="title">Instruçoes</p>
+      <p class="text">Neste jogo você deve colocar os itens nos conjuntos certos</p>
+      <img src="../../assets/instructionSetGame1.png" class="instruction1">
+      <p class="text">Os conjuntos possuem uma area em comum, chamada <span class="blue">intersecçao</span>.</p>
+      <img src="../../assets/instructionSetGame2.png" class="instruction2">
+      <p class="text">Elementos que pertencem aos <span class="blue">dois conjuntos</span>, sao colocados nessa area</p>
+      <img src="../../assets/okButton.png" class="okButton" (click)="dismiss()">
+    </div>
+
+  </div>
+
+</ion-content>
+<ion-footer class="ion-no-border">
+</ion-footer>
