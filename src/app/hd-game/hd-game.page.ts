@@ -34,8 +34,15 @@ export class HdGamePage {
 
 
   ionViewWillEnter() {
+    errors = 0;
+    score = 0;
+    marginCP = -5;
+    marginWr = -5;
+    marginUsb = -5;
+    marginHd = -5;
     this.getItem();
     this.carregar();
+    
   }
 
   ionViewDidLeave(){
@@ -185,7 +192,7 @@ export class HdGamePage {
         marginWr = -10;
         marginUsb = -10;
         setTimeout(function(){clearInterval(loop)}, 1000);
-      } else if(errors==3){
+      } else if(errors>=3){
         document.getElementById("lost").style.visibility = "visible";
         marginCP = -10;
         marginHd = -10;
