@@ -12,7 +12,7 @@ let marginWr = -5, marginUsb = -5, marginHd = -5;
 let heightFrame = 0, widthFrame = 0;
 
 //a marginTop da cesta eh de 70vh. Para descobrir o y, eh soh pegar a altura e dividir por 100 (medida por vh) e multiplicar pela margin
-let yBasket = 0, xBasket = 0; 
+let yBasket = 0, xBasket = 0;
 let widthBasket = 0, heightBasket = 0;
 
 let score = 0;
@@ -28,8 +28,8 @@ var choosenCharacter;
 
 export class HdGamePage {
 
-  constructor(private navigation: NavController) { 
-    
+  constructor(private navigation: NavController) {
+
   }
 
 
@@ -42,10 +42,10 @@ export class HdGamePage {
     marginHd = -5;
     this.getItem();
     this.carregar();
-    
+
   }
 
-  ionViewDidLeave(){
+  ionViewDidLeave() {
     document.location.reload();
   }
 
@@ -53,7 +53,7 @@ export class HdGamePage {
     const { value } = await Storage.get({ key: 'character' });
     choosenCharacter = value;
 
-    if(choosenCharacter==1){
+    if (choosenCharacter == 1) {
       document.getElementById("won").setAttribute('src', './assets/wonBoy.png')
       document.getElementById("lost").setAttribute('src', './assets/lostBoy.png')
     } else {
@@ -62,14 +62,14 @@ export class HdGamePage {
     }
   }
 
-  carregar(){
-        
+  carregar() {
+
     heightFrame = document.getElementById("game").offsetHeight;
     widthFrame = document.getElementById("game").offsetWidth;
 
     //a marginTop da cesta eh de 80vh. Para descobrir o y, eh soh pegar a altura e dividir por 100 (medida por vh) e multiplicar pela margin
     xBasket = 0;
-    yBasket = (heightFrame/100)*80; 
+    yBasket = (heightFrame / 100) * 80;
     widthBasket = document.getElementById("basket").getBoundingClientRect().width;
     heightBasket = document.getElementById("basket").getBoundingClientRect().height;
 
@@ -78,64 +78,64 @@ export class HdGamePage {
     var usb = document.getElementById("usb");
     var hd = document.getElementById("hd");
 
-    if(marginCP == -5){
-      cp.style.marginLeft = (Math.random() * (80 - 1) + 1)+"vw"; 
+    if (marginCP == -5) {
+      cp.style.marginLeft = (Math.random() * (80 - 1) + 1) + "vw";
     }
-    cp.style.marginTop = marginCP+"vh";
+    cp.style.marginTop = marginCP + "vh";
 
-    if(marginWr==-5){
-      wr.style.marginLeft  = (Math.random() * (80 - 1) + 1)+"vw"; 
+    if (marginWr == -5) {
+      wr.style.marginLeft = (Math.random() * (80 - 1) + 1) + "vw";
     }
-    wr.style.marginTop = marginWr+"vh";
+    wr.style.marginTop = marginWr + "vh";
 
-    if(marginUsb == -5){
-      usb.style.marginLeft = (Math.random() * (80 - 1) + 1)+"vw"; 
+    if (marginUsb == -5) {
+      usb.style.marginLeft = (Math.random() * (80 - 1) + 1) + "vw";
     }
-    usb.style.marginTop = marginUsb+"vh";
+    usb.style.marginTop = marginUsb + "vh";
 
-    if(marginHd == -5){
-      hd.style.marginLeft = (Math.random() * (80 - 1) + 1)+"vw"; 
+    if (marginHd == -5) {
+      hd.style.marginLeft = (Math.random() * (80 - 1) + 1) + "vw";
     }
-    hd.style.marginTop = marginHd+"vh";
+    hd.style.marginTop = marginHd + "vh";
 
-    document.getElementById("pts").innerHTML = score+"/10";
+    document.getElementById("pts").innerHTML = score + "/10";
 
-    var loop = setInterval(function(){
+    var loop = setInterval(function () {
 
       //chip
-      if(marginCP == -5){
-        cp.style.marginLeft = (Math.random() * (80 - 1) + 1)+"vw"; 
-      } 
-      cp.style.marginTop = marginCP+"vh";
-      marginCP+=1;
+      if (marginCP == -5) {
+        cp.style.marginLeft = (Math.random() * (80 - 1) + 1) + "vw";
+      }
+      cp.style.marginTop = marginCP + "vh";
+      marginCP += 1;
 
       //wireless router
-      if(marginWr==-5){
-        wr.style.marginLeft  = (Math.random() * (80 - 1) + 1)+"vw"; 
+      if (marginWr == -5) {
+        wr.style.marginLeft = (Math.random() * (80 - 1) + 1) + "vw";
       }
-      wr.style.marginTop = marginWr+"vh";
-      marginWr+=1;
+      wr.style.marginTop = marginWr + "vh";
+      marginWr += 1;
 
       //usb
-      if(marginUsb == -5){
-        usb.style.marginLeft = (Math.random() * (80 - 1) + 1)+"vw"; 
+      if (marginUsb == -5) {
+        usb.style.marginLeft = (Math.random() * (80 - 1) + 1) + "vw";
       }
-      usb.style.marginTop = marginUsb+"vh";
-      marginUsb+=1;
+      usb.style.marginTop = marginUsb + "vh";
+      marginUsb += 1;
 
       //hd
-      if(marginHd == -5){
-        hd.style.marginLeft = (Math.random() * (80 - 1) + 1)+"vw"; 
+      if (marginHd == -5) {
+        hd.style.marginLeft = (Math.random() * (80 - 1) + 1) + "vw";
       }
-      hd.style.marginTop = marginHd+"vh";
-      marginHd+=1;
+      hd.style.marginTop = marginHd + "vh";
+      marginHd += 1;
 
 
       xBasket = document.getElementById("basket").getBoundingClientRect().left;
 
       var ycp = cp.offsetTop;
       var xcp = cp.offsetLeft;
-      var widthCp= cp.offsetWidth;
+      var widthCp = cp.offsetWidth;
       var heightCp = cp.offsetHeight;
 
       var yWr = wr.offsetTop;
@@ -152,65 +152,69 @@ export class HdGamePage {
       var xHd = hd.offsetLeft;
       var widthHd = hd.offsetWidth;
       var heightHd = hd.offsetHeight;
-    
-      if( ( (xcp>=xBasket && xcp<=xBasket+widthBasket) || (xcp+widthCp>=xBasket && xcp+widthCp<=xBasket+widthBasket)) && (ycp+heightCp>yBasket+5 && ycp<=yBasket+heightBasket)){
+
+      if (((xcp >= xBasket && xcp <= xBasket + widthBasket) || (xcp + widthCp >= xBasket && xcp + widthCp <= xBasket + widthBasket)) 
+      && (ycp + heightCp > yBasket + 5 && ycp <= yBasket + heightBasket)) {
         cp.style.position = "absolute";
         wr.style.position = "absolute";
         marginCP = -5;
         errors++;
-      } else if(ycp>heightFrame+10){
+      } else if (ycp > heightFrame + 10) {
         marginCP = -5;
       }
 
-      if( ( (xWr>=xBasket && xWr<=xBasket+widthBasket) || (xWr+widthWr>=xBasket && xWr+widthWr<=xBasket+widthBasket)) && (yWr+heightWr>yBasket+5 && yWr<=yBasket+heightBasket)){
+      if (((xWr >= xBasket && xWr <= xBasket + widthBasket) || (xWr + widthWr >= xBasket && xWr + widthWr <= xBasket + widthBasket)) 
+      && (yWr + heightWr > yBasket + 5 && yWr <= yBasket + heightBasket)) {
         marginWr = -5;
         errors++;
-      } else if(yWr>heightFrame+10){
+      } else if (yWr > heightFrame + 10) {
         marginWr = -5;
       }
 
-      if( ( (xUsb>=xBasket && xUsb<=xBasket+widthBasket) || (xUsb+widthUsb>=xBasket && xUsb+widthUsb<=xBasket+widthBasket)) && (yUsb+heightUsb>yBasket+5 && yUsb<=yBasket+heightBasket)){
+      if (((xUsb >= xBasket && xUsb <= xBasket + widthBasket) || (xUsb + widthUsb >= xBasket && xUsb + widthUsb <= xBasket + widthBasket)) 
+      && (yUsb + heightUsb > yBasket + 5 && yUsb <= yBasket + heightBasket)) {
         marginUsb = -5;
         errors++;
-      } else if(yUsb>heightFrame+10){
+      } else if (yUsb > heightFrame + 10) {
         marginUsb = -5;
       }
 
-      if( ( (xHd>=xBasket && xHd<=xBasket+widthBasket) || (xHd+widthHd>=xBasket && xHd+widthHd<=xBasket+widthBasket)) && (yHd+heightHd>yBasket+5 && yHd<=yBasket+heightBasket)){
+      if (((xHd >= xBasket && xHd <= xBasket + widthBasket) || (xHd + widthHd >= xBasket && xHd + widthHd <= xBasket + widthBasket)) 
+      && (yHd + heightHd > yBasket + 5 && yHd <= yBasket + heightBasket)) {
         marginHd = -5;
         score++;
-      } else if(yHd>heightFrame+10){
+      } else if (yHd > heightFrame + 10) {
         marginHd = -5;
       }
 
-      document.getElementById("pts").innerHTML = score+"/10";
+      document.getElementById("pts").innerHTML = score + "/10";
 
-      if(score==10){
+      if (score == 10) {
         document.getElementById("won").style.visibility = "visible";
         marginCP = -10;
         marginHd = -10;
         marginWr = -10;
         marginUsb = -10;
-        setTimeout(function(){clearInterval(loop)}, 1000);
-      } else if(errors>=3){
+        setTimeout(function () { clearInterval(loop) }, 1000);
+      } else if (errors >= 3) {
         document.getElementById("lost").style.visibility = "visible";
         marginCP = -10;
         marginHd = -10;
         marginWr = -10;
         marginUsb = -10;
-        setTimeout(function(){clearInterval(loop)}, 1000);
+        setTimeout(function () { clearInterval(loop) }, 1000);
       }
 
       console.log(errors);
-     
+
     }, 100);
   }
 
-  backChooseGame(){
+  backChooseGame() {
     this.navigation.navigateBack("choose-game")
   }
 
-  backHdPlay(){
+  backHdPlay() {
     this.navigation.back();
   }
 
