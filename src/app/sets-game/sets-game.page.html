@@ -1,21 +1,26 @@
-<ion-header class="header ion-no-border">
-</ion-header>
 <ion-content [fullscreen]="true">
   <div class="container">
     <div class="lists" *ngIf="isListsVisible">
-      <p>Salmão: Mouse, Placa Mãe, Disco Rígido</p>
-      <p>Azul: Teclado, Mouse</p>
-  </div>
+      <p><span style="color:#6C7FD8;">Lilas</span>: Mouse, Processador, Disco Rigido</p>
+      <p><span style="color:#3BAEED;">Azul</span>: Teclado, Mouse</p>
+    </div>
   <div class="game">
       <div class="warnings" *ngIf="isWarningsVisible">
-          <img src="./assets/play.png" id="play" (click)="play()" *ngIf="isPlayVisible"/>
-          <img src="./assets/lost.png" id="lost" (click)="play()" *ngIf="isLostVisible"/>
-          <img src="./assets/won.png" id="won" (click)="won()" *ngIf="isWonVisible"/>
+        <div *ngIf="isPlayVisible" class="initial">
+          <img src="../../../assets/nameSetGame.png" class="nameGame">
+          <img src="../../../assets/iconGameTwo.png" class="iconGame">
+          <img src="../../../assets/playButtonTwo.png" class="buttonPlay" id="play" (click)="play()">
+          <img src="../../../assets/instructionsButton.png" class="buttonInstructions" (click)="presentModal()">
+ 
+          <!--<img src="./assets/playButtonTwo.png" id="play" (click)="play()"/>-->
+        </div>
+           <img src="{{srcLost}}" id="lost" class="lost" (click)="play()" *ngIf="isLostVisible"/>
+          <img src="{{srcWin}}" id="won" class="won" (click)="won()" *ngIf="isWonVisible"/>
       </div>
       <div class="game-content" *ngIf="isGameVisible">
           <img src="./assets/circle.svg" id="circle" class="circle"/>
           <img src="./assets/circle.svg" id="circle2" class="circle"/>
-          <img src="./assets/motherBoard.svg" id="item" class="items" cdkDrag/>
+          <img src="./assets/cpu.png" id="item" class="items" cdkDrag/>
           <img src="./assets/mouse.png" id="item2" class="items" cdkDrag/>
           <img src="./assets/keyboard.png" id="item3" class="items" cdkDrag/>
           <img src="./assets/hardDrive.png" id="item4" class="items" cdkDrag/>

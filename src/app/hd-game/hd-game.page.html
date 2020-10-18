@@ -1,0 +1,24 @@
+<ion-content [fullscreen]="true" padding>
+  
+  <!--
+    <div class="limit-basket" id="limitBasket">
+      <img src="./assets/basket.png" id="item" class="basket" cdkDragBoundary=".limit-basket" cdkDragLockAxis = "x" cdkDrag/>
+    </div>
+  -->
+  <div class="game" id="game">
+    <div id="pts" class="pts"></div>
+    <img src="./assets/cpu.png" class="obs" id="cp">
+    <img src="./assets/wirelessRouter.png" class="obs" id="wr">
+    <img src="./assets/usb.png" class="obs" id="usb">
+    <img src="./assets/hardDrive.png" class="obs" id="hd">
+    
+    <img src="./assets/basket2.png" class="basket" id="basket" cdkDragBoundary=".game" cdkDragLockAxis = "x" cdkDrag/>
+    
+    <img src="./assets/wonBoy.png" class="won" id="won" (click)="backChooseGame()">
+    <img src="./assets/lost.png" class="lost" id="lost" (click)="backHdPlay()">
+     
+  </div>
+  
+    
+  
+</ion-content>

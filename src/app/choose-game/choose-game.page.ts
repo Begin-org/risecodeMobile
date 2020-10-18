@@ -45,7 +45,9 @@ export class ChooseGamePage implements OnInit {
 
   openGame(){
     this.slides.getActiveIndex().then(index => {
-      if(index==1){
+      if(index==0){
+        this.navigation.navigateForward('hd-game/hd-play');
+      } else if(index==1){
         this.navigation.navigateForward('sets-game');
       }
     });

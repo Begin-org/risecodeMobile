@@ -1,0 +1,64 @@
+ion-content{
+    --ion-background-color:#5fc8d5;
+}
+  
+ion-header{
+    --ion-background-color:#5fc8d5;
+}
+
+.won{
+    width: 75vw;
+    margin-left: 12.5vw;
+    margin-top: 20vh;
+    visibility: hidden;
+}
+
+.lost {
+    width: 75vw;
+    margin-left: 12.5vw;
+    margin-top: -40vw;
+    visibility: hidden;
+}
+
+.game{
+    height: 100vh;
+    max-height: 100vh;
+    background-image: url("../../assets/bgHD.png");
+    background-color: red;
+    background-size: 100%;
+}
+
+.pts{
+    padding: 5vw;
+    font-size: 20pt;
+    position: absolute;
+}
+
+.obs{
+    width: 16vw;
+    height: 16vw;
+    position: absolute;
+}
+
+
+.limit-basket{
+    display: flex;
+    justify-content: center;
+    width:100vw;
+    height: 20vh;
+    max-height: 20vh;
+    background-color: red;
+    margin-top: 75vh;
+    position: absolute;
+}
+.basket{
+    width:30vw;
+    margin-top: 80vh;
+    position: absolute;
+}
+
+ion-footer{
+    background-image: url('../../assets/footerClouds.png');
+    background-size: 100% 100%;
+    height: 20vw;
+}

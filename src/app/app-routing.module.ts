@@ -22,6 +22,14 @@ const routes: Routes = [
     path: 'sets-game',
     loadChildren: () => import('./sets-game/sets-game.module').then( m => m.SetsGamePageModule)
   },
+  {
+    path: 'hd-game',
+    loadChildren: () => import('./hd-game/hd-game.module').then( m => m.HdGamePageModule)
+  },
+  {
+    path: 'modal',
+    loadChildren: () => import('./modal/modal.module').then( m => m.ModalPageModule)
+  },
 
 ];
 

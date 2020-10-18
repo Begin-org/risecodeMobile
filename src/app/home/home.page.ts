@@ -5,7 +5,9 @@ import {
   StatusBarStyle,
 } from '@capacitor/core';
 const { StatusBar } = Plugins;
+const { Storage } = Plugins;
 
+var chooseCharacter = false;
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -17,9 +19,24 @@ export class HomePage implements OnInit {
 
   ngOnInit(){
     StatusBar.hide();
+    //this.getItem();
   }
   openNextPage(){
-    this.navigation.navigateForward('choose-character');
+    if(chooseCharacter==false){
+      this.navigation.navigateForward('choose-character');
+    } else {
+      this.navigation.navigateForward('choose-game');
+    }
+    
+  }
+  
+  async getItem() {
+    const { value } = await Storage.get({ key: 'character' });
+    if(value==null){
+      chooseCharacter = false;
+    } else {
+      chooseCharacter = true;
+    }
   }
 
 }
